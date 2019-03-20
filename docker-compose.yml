@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  prod:
+    image: rate-my-class
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+  dev:
+    image: rate-my-class
+    volumes:
+      - ./app:/app # Mount a volume in the dev mode so we don't have to keep rebuilding the image
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
