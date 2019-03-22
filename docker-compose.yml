@@ -1,12 +1,24 @@
 version: '3'
 
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
   prod:
     image: rate-my-class
     env_file:
       - .env
     ports:
       - 3000:3000
+    depends_on:
+      - db
+    links:
+      - db
   dev:
     image: rate-my-class
     volumes:
@@ -15,3 +27,7 @@ services:
       - .env
     ports:
       - 3000:3000
+    depends_on:
+      - db
+    links:
+      - db
