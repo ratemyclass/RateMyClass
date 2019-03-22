@@ -1,0 +1,94 @@
+/** Defines the main styles for the website **/
+/** Reset CSS Styles. These will be the default styles for the specified HTML elements **/
+* {
+  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+  background-color: #f0f0f0;
+}
+li {
+  list-style: none;
+}
+p {
+  margin-bottom: 0;
+}
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus {
+  box-shadow: none !important;
+}
+/** Define global variables and classes for the entire site **/
+.flex {
+  display: flex;
+}
+nav {
+  background-color: white;
+  border-bottom: solid 1px #E6E6E6;
+  width: 100%;
+}
+.navbar {
+  height: 50px;
+}
+#search-bar {
+  border: none;
+  border-radius: 0;
+}
+#search-bar:active,
+#search-bar:focus {
+  box-shadow: none;
+  background-color: #E6E6E6;
+  transition: background-color 0.4s;
+}
+.content-section {
+  width: 100%;
+}
+.sidenav {
+  background-color: white;
+  border-right: solid 1px #E6E6E6;
+  width: 250px;
+  height: 100vh;
+  transition: width 0.3s;
+}
+.sidenav-item {
+  display: flex;
+  justify-content: left;
+  color: #6d6d6d;
+  height: 50px;
+  padding: 10px 15px;
+}
+.sidenav-item i {
+  margin-top: 3px;
+  flex-basis: 15%;
+}
+.sidenav-item:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.sidenav-title {
+  justify-content: center;
+  border-bottom: solid 1px #E6E6E6;
+}
+.no-nav {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+#centerpanel {
+  padding: 50px;
+}
+.center-header {
+  margin-bottom: 50px;
+}
+.description {
+  color: #6c757d;
+}
+.statpanel {
+  background-color: white;
+  border-radius: 1px;
+  border: solid 1px #E6E6E6;
+}

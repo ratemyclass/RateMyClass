@@ -1,0 +1,4 @@
+/** Define global variables and classes for the entire site **/
+.flex {
+  display: flex;
+}

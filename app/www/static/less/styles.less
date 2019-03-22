@@ -1,0 +1,102 @@
+/** Defines the main styles for the website **/
+
+@import "resets";
+@import "globals";
+@import "mixins";
+
+
+// Navbar
+
+
+nav {
+  background-color: white;
+  border-bottom: solid 1px @medium-grey;
+  width: 100%;
+}
+
+.navbar {
+  height: 50px;
+}
+
+#search-bar {
+  border: none;
+  border-radius: 0;
+
+  &:active, &:focus {
+    box-shadow: none;
+    background-color: @medium-grey;
+    transition: background-color 0.4s;
+  }
+}
+
+.content-section {
+  width: 100%;
+}
+
+
+// Sidenav
+
+
+.sidenav {
+  background-color: white;
+  border-right: solid 1px @medium-grey;
+  width: 250px;
+  height: 100vh;
+  transition: width 0.3s;
+}
+
+.sidenav-item {
+
+  i {
+    margin-top: 3px;
+    flex-basis: 15%;
+  }
+
+  display: flex;
+  justify-content: left;
+  color: #6d6d6d;
+  height: 50px;
+  padding: 10px 15px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(white, 3%);
+  }
+}
+
+.sidenav-title {
+  justify-content: center;
+  border-bottom: solid 1px @medium-grey;
+}
+
+.no-nav {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+
+
+// Center Panel
+
+
+#centerpanel {
+  padding: 50px;
+}
+
+.center-header {
+  margin-bottom: 50px;
+}
+
+.description {
+  color: #6c757d;
+}
+
+
+// Stat Panel
+
+
+.statpanel {
+  background-color: white;
+  border-radius: 1px;
+  border: solid 1px @medium-grey;
+}

@@ -706,6 +706,42 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
+/***/ "./react/centerpanel.tsx":
+/*!*******************************!*\
+  !*** ./react/centerpanel.tsx ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst statpanel_1 = __webpack_require__(/*! ./statpanel */ \"./react/statpanel.tsx\");\n/**\n * The center panel component defines the inner display elements within the dashboard\n */\nclass CenterPanel extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        return (React.createElement(\"div\", { id: \"centerpanel\" },\n            React.createElement(\"header\", { className: \"center-header\" },\n                React.createElement(\"h1\", null, \"Never Worry About a Class Again.\"),\n                React.createElement(\"p\", { className: \"description\" }, \"RateMyClass allows your to achieve agency over your own education\")),\n            React.createElement(\"div\", { className: \"row\" },\n                React.createElement(\"div\", { className: \"col-md-3\" },\n                    React.createElement(statpanel_1.StatPanel, { title: \"Classes\", description: \"231\" })),\n                React.createElement(\"div\", { className: \"col-md-3\" },\n                    React.createElement(statpanel_1.StatPanel, { title: \"Professors\", description: \"105\" })),\n                React.createElement(\"div\", { className: \"col-md-3\" },\n                    React.createElement(statpanel_1.StatPanel, { title: \"Majors\", description: \"38\" })),\n                React.createElement(\"div\", { className: \"col-md-3\" },\n                    React.createElement(statpanel_1.StatPanel, { title: \"Reviews\", description: \"582\" })))));\n    }\n}\nexports.CenterPanel = CenterPanel;\n\n\n//# sourceURL=webpack:///./react/centerpanel.tsx?");
+
+/***/ }),
+
+/***/ "./react/container.tsx":
+/*!*****************************!*\
+  !*** ./react/container.tsx ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst dashboard_1 = __webpack_require__(/*! ./dashboard */ \"./react/dashboard.tsx\");\nclass Container extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        return (React.createElement(\"div\", { id: \"container\" },\n            React.createElement(dashboard_1.Dashboard, null)));\n    }\n}\nexports.Container = Container;\n\n\n//# sourceURL=webpack:///./react/container.tsx?");
+
+/***/ }),
+
+/***/ "./react/dashboard.tsx":
+/*!*****************************!*\
+  !*** ./react/dashboard.tsx ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst navbar_1 = __webpack_require__(/*! ./navbar */ \"./react/navbar.tsx\");\nconst sidenav_1 = __webpack_require__(/*! ./sidenav */ \"./react/sidenav.tsx\");\nconst centerpanel_1 = __webpack_require__(/*! ./centerpanel */ \"./react/centerpanel.tsx\");\n/**\n * The dashboard component defines a container for the entire viewport of the screen\n */\nclass Dashboard extends React.Component {\n    constructor(props) {\n        super(props);\n        this.collapseSideNav = this.collapseSideNav.bind(this);\n        // TODO: Automatically hide the sidenav if we are on a small screen\n        this.state = { showSideNav: true };\n    }\n    /**\n     * Toggles the side nav collapse\n     */\n    collapseSideNav() {\n        // TODO: Add animation to smoothly collapse the sidenav\n        this.setState({ showSideNav: !this.state.showSideNav });\n    }\n    render() {\n        return (React.createElement(\"div\", { className: \"flex\" },\n            React.createElement(sidenav_1.Sidenav, { collapsed: !this.state.showSideNav }),\n            React.createElement(\"div\", { className: \"flex flex-column content-section\" },\n                React.createElement(navbar_1.Navbar, { collapseSideNav: this.collapseSideNav }),\n                React.createElement(centerpanel_1.CenterPanel, null))));\n    }\n}\nexports.Dashboard = Dashboard;\n\n\n//# sourceURL=webpack:///./react/dashboard.tsx?");
+
+/***/ }),
+
 /***/ "./react/index.tsx":
 /*!*************************!*\
   !*** ./react/index.tsx ***!
@@ -718,6 +754,18 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
+/***/ "./react/navbar.tsx":
+/*!**************************!*\
+  !*** ./react/navbar.tsx ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nclass Navbar extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        return (React.createElement(\"nav\", { className: \"navbar navbar-expand-lg\" },\n            React.createElement(\"button\", { className: \"btn\", onClick: this.props.collapseSideNav },\n                React.createElement(\"i\", { className: \"fas fa-bars\" })),\n            React.createElement(\"input\", { id: \"search-bar\", className: \"form-control\", type: \"search\", placeholder: \"Search by class or professor\" })));\n    }\n}\nexports.Navbar = Navbar;\n\n\n//# sourceURL=webpack:///./react/navbar.tsx?");
+
+/***/ }),
+
 /***/ "./react/router.tsx":
 /*!**************************!*\
   !*** ./react/router.tsx ***!
@@ -726,7 +774,31 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n/** App will be the main container for the entire front end **/\nexports.App = () => (React.createElement(react_router_dom_1.Switch, null,\n    React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: HelloWorld })));\n// This component will be rendered when the user navigates to the '/' route (the home page)\nconst HelloWorld = () => React.createElement(\"h1\", null, \"Hello World! Rate my class.\");\n\n\n//# sourceURL=webpack:///./react/router.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst container_1 = __webpack_require__(/*! ./container */ \"./react/container.tsx\");\n/** App will be the main container for the entire front end **/\nexports.App = () => (React.createElement(react_router_dom_1.Switch, null,\n    React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: container_1.Container })));\n\n\n//# sourceURL=webpack:///./react/router.tsx?");
+
+/***/ }),
+
+/***/ "./react/sidenav.tsx":
+/*!***************************!*\
+  !*** ./react/sidenav.tsx ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nclass Sidenav extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const sidenavClass = this.props.collapsed ? \"no-nav\" : \"sidenav\";\n        return (React.createElement(\"div\", { id: \"sidenav\", className: sidenavClass },\n            React.createElement(\"div\", { className: \"sidenav-item sidenav-title\" },\n                React.createElement(\"h4\", null, \"RateMyClass\")),\n            React.createElement(\"div\", { className: \"sidenav-item\" },\n                React.createElement(\"i\", { className: \"fas fa-home\", style: { color: \"#9effb8\" } }),\n                React.createElement(\"h5\", null, \" Home\")),\n            React.createElement(\"div\", { className: \"sidenav-item\" },\n                React.createElement(\"i\", { className: \"fas fa-graduation-cap\", style: { color: \"#8aaee2\" } }),\n                React.createElement(\"h5\", null, \" Classes\")),\n            React.createElement(\"div\", { className: \"sidenav-item\" },\n                React.createElement(\"i\", { className: \"fas fa-user-graduate\", style: { color: \"#d46ce7\" } }),\n                React.createElement(\"h5\", null, \" Professors\")),\n            React.createElement(\"div\", { className: \"sidenav-item\" },\n                React.createElement(\"i\", { className: \"fas fa-chart-line\", style: { color: \"#e9f259\" } }),\n                React.createElement(\"h5\", null, \" Leaderboard\"))));\n    }\n}\nexports.Sidenav = Sidenav;\n\n\n//# sourceURL=webpack:///./react/sidenav.tsx?");
+
+/***/ }),
+
+/***/ "./react/statpanel.tsx":
+/*!*****************************!*\
+  !*** ./react/statpanel.tsx ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/**\n * A stat panel defines a small, self-contained panel intended to display a statistic on the dashboard\n */\nclass StatPanel extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        return (React.createElement(\"div\", { className: \"statpanel\" },\n            React.createElement(\"div\", { className: \"stat-title\" },\n                React.createElement(\"p\", null, this.props.title)),\n            React.createElement(\"div\", { className: \"stat-body\" },\n                React.createElement(\"p\", null, this.props.description))));\n    }\n}\nexports.StatPanel = StatPanel;\n\n\n//# sourceURL=webpack:///./react/statpanel.tsx?");
 
 /***/ }),
 
