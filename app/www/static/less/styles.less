@@ -14,7 +14,12 @@ nav {
   width: 100%;
 }
 
+.nav-margin {
+  margin-left: 250px;
+}
+
 .navbar {
+  flex-wrap: nowrap;
   height: 50px;
 }
 
@@ -22,10 +27,33 @@ nav {
   border: none;
   border-radius: 0;
 
+  &.nav-margin {
+    margin-left: 0;
+    margin-right: 290px;
+  }
+
   &:active, &:focus {
     box-shadow: none;
     background-color: @medium-grey;
-    transition: background-color 0.4s;
+    transition: background-color 0.2s;
+  }
+}
+
+.compose-btn {
+
+  z-index: 10;
+
+  &.nav-margin {
+    position: absolute;
+    right: 260px;
+  }
+
+  border-radius: 50%;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: @medium-grey;
+    transition: all 0.2s;
   }
 }
 
@@ -38,11 +66,13 @@ nav {
 
 
 .sidenav {
+  position: fixed;
   background-color: white;
   border-right: solid 1px @medium-grey;
   width: 250px;
   height: 100vh;
   transition: width 0.3s;
+  z-index: 100;
 }
 
 .sidenav-item {
@@ -54,13 +84,14 @@ nav {
 
   display: flex;
   justify-content: left;
-  color: #6d6d6d;
+  color: @grey-text;
   height: 50px;
   padding: 10px 15px;
 
   &:hover {
     cursor: pointer;
     background-color: darken(white, 3%);
+    transition: background-color 0.2s;
   }
 }
 
@@ -83,6 +114,10 @@ nav {
   padding: 50px;
 }
 
+.center-margin {
+  margin-left: 250px;
+}
+
 .center-header {
   margin-bottom: 50px;
 }
@@ -99,4 +134,131 @@ nav {
   background-color: white;
   border-radius: 1px;
   border: solid 1px @medium-grey;
+  padding: 20px;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 6px -6px #777;
+    transition: box-shadow 0.2s;
+  }
+}
+
+.stat-title {
+  color: @grey-text;
+  margin-bottom: 15px;
+}
+
+.stat-body {
+  i {
+    font-size: 1.2em;
+  }
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-description {
+  border-radius: 100px;
+  padding: 0 10px;
+}
+
+
+// Recent Reviews Panel
+
+
+.recent-reviews {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 1px;
+  border: solid 1px @medium-grey;
+  padding: 20px;
+}
+
+.recent-title {
+  color: @grey-text;
+  margin-bottom: 15px;
+}
+
+.reviews-list {
+  width: 100%;
+}
+
+
+// Review Panel
+
+
+.review-panel {
+  border-top: solid 1px @medium-grey;
+}
+
+.review-stats {
+  text-align: center;
+  border-right: solid 1px @medium-grey;
+
+  @media @tablet-down {
+    border-right: none;
+  }
+}
+
+.review-classid {
+  margin: 15px;
+  font-size: 1.15em;
+}
+
+.review-timestamp {
+  text-align: right;
+  top: 10px;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 0.85em;
+  color: darken(@medium-grey, 25%);
+}
+
+.review-content-header {
+  margin-right: 0;
+}
+
+.review-text {
+  padding: 10px 0;
+  font-family: Montserrat;
+}
+
+.review-content-header {
+  border-bottom: solid 1px @medium-grey;
+}
+
+.review-datum {
+  padding: 10px 15px;
+}
+
+.review-title {
+  color: #6c757d;
+}
+
+// Star Rating Rows
+
+
+.rating-stars {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.star-row {
+  font-size: 0.9em;
+}
+
+.star-title {
+  font-size: 0.9em;
+}
+
+.star-filled {
+  color: @yellow;
+}
+
+.star-unfilled {
+  color: @medium-grey;
+}
+
+.overall-rating {
+  margin-left: 30%;
+  width: 40%;
 }

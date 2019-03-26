@@ -3,6 +3,34 @@
 .flex {
   display: flex;
 }
+.lightgreen {
+  color: #9effb8;
+}
+.lightgreen.with-bg {
+  color: #00d138;
+  background-color: #9effb8;
+}
+.lightblue {
+  color: #8aaee2;
+}
+.lightblue.with-bg {
+  color: #204780;
+  background-color: #8aaee2;
+}
+.magenta {
+  color: #d46ce7;
+}
+.magenta.with-bg {
+  color: #651374;
+  background-color: #d46ce7;
+}
+.yellow {
+  color: #e9f259;
+}
+.yellow.with-bg {
+  color: #6f7609;
+  background-color: #e9f259;
+}
 * {
   font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

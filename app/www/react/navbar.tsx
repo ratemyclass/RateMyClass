@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface NavbarProps { collapseSideNav: () => void }
+interface NavbarProps { showNav: boolean, collapseSideNav: () => void, composeReview: () => void }
 interface NavbarState {}
 
 export class Navbar extends React.Component<NavbarProps, NavbarState> {
@@ -9,10 +9,12 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
     }
 
     render() {
+        const navClass = this.props.showNav ? "nav-margin" : "";
         return (
-            <nav className="navbar navbar-expand-lg">
+            <nav className={`navbar navbar-expand-lg ${navClass}`}>
                 <button className="btn" onClick={this.props.collapseSideNav}><i className="fas fa-bars"></i></button>
-                <input id="search-bar" className="form-control" type="search" placeholder="Search by class or professor" />
+                <input id="search-bar" className={`form-control ${navClass}`} type="search" placeholder="Search by class or professor" />
+                <button className={`btn compose-btn ${navClass}`} onClick={this.props.composeReview}><i className="far fa-edit"></i></button>
             </nav>
         )
     }

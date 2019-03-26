@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface SidenavProps { collapsed: boolean }
+interface SidenavProps { showNav: boolean }
 interface SidenavState {}
 
 export class Sidenav extends React.Component<SidenavProps, SidenavState> {
@@ -9,7 +9,7 @@ export class Sidenav extends React.Component<SidenavProps, SidenavState> {
     }
 
     render() {
-        const sidenavClass = this.props.collapsed ? "no-nav" : "sidenav";
+        const sidenavClass = this.props.showNav ? "sidenav" : "no-nav";
 
         return (
             <div id="sidenav" className={sidenavClass}>

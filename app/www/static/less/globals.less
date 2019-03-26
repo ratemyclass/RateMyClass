@@ -5,9 +5,54 @@
 @tablet-down: (max-width: 767px);
 @phone-down: (max-width: 480px);
 
-@side-nav-color: #162c50;
+@lightgreen: #9effb8;
+@lightblue: #8aaee2;
+@magenta: #d46ce7;
+@yellow: #e9f259;
+
+@grey-text: #6c757d;
 @medium-grey: #E6E6E6;
 
 .flex {
-    display: flex;
+  display: flex;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.lightgreen {
+  color: @lightgreen;
+
+  &.with-bg {
+    color: darken(@lightgreen, 40%);
+    background-color: @lightgreen;
+  }
+}
+
+.lightblue {
+  color: @lightblue;
+
+  &.with-bg {
+    color: darken(@lightblue, 40%);
+    background-color: @lightblue;
+  }
+}
+
+.magenta {
+  color: @magenta;
+
+  &.with-bg {
+    color: darken(@magenta, 40%);
+    background-color: @magenta;
+  }
+}
+
+.yellow {
+  color: @yellow;
+
+  &.with-bg {
+    color: darken(@yellow, 40%);
+    background-color: @yellow;
+  }
 }
