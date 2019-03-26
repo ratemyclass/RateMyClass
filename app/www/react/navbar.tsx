@@ -3,6 +3,9 @@ import * as React from "react";
 interface NavbarProps { showNav: boolean, collapseSideNav: () => void, composeReview: () => void }
 interface NavbarState {}
 
+/**
+ * The Navbar component defines the navbar at the top of the screen containing the search bar and compose button
+ */
 export class Navbar extends React.Component<NavbarProps, NavbarState> {
     constructor(props) {
         super(props);

@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { Navbar } from "./navbar";
-import {Sidenav} from "./sidenav";
-import {CenterPanel} from "./centerpanel";
+import { Sidenav } from "./sidenav";
+import { HomePanel } from "./homepanel";
 
 interface DashboardProps {}
 interface DashboardState { showSideNav: boolean, windowWidth: number }
@@ -43,7 +43,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     }
 
     /**
-     * Toggles the side nav collapse
+     * Toggles the Sidenav collapse
      */
     collapseSideNav() {
         this.setState({showSideNav: !this.state.showSideNav});
@@ -57,6 +57,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     }
 
     render() {
+        // Hide the Sidenav on tablets and mobile
         const showNav = this.state.showSideNav && this.state.windowWidth > 692;
         return (
             <div className="flex">
@@ -64,7 +65,9 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
                 <div className="flex flex-column content-section">
                     <Navbar showNav={showNav} collapseSideNav={this.collapseSideNav} composeReview={this.composeReview} />
-                    <CenterPanel showNav={showNav} />
+
+                    {/* TODO: Toggle between Home, Classes, Professors, Leaderboard, and Search views */}
+                    <HomePanel showNav={showNav} />
                 </div>
             </div>
         )

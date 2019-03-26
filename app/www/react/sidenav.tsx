@@ -3,12 +3,16 @@ import * as React from "react";
 interface SidenavProps { showNav: boolean }
 interface SidenavState {}
 
+/**
+ * The Sidenav component defines the collapsable navigation bar on the left-hand side of the screen
+ */
 export class Sidenav extends React.Component<SidenavProps, SidenavState> {
     constructor(props) {
         super(props);
     }
 
     render() {
+        // Set the css class to show/hide the sidenav
         const sidenavClass = this.props.showNav ? "sidenav" : "no-nav";
 
         return (

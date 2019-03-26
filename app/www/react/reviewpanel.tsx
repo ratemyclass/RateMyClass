@@ -15,13 +15,13 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
     constructor(props) {
         super(props);
 
-        this.getOverallColor = this.getOverallColor.bind(this);
+        this.getOverallRatingColor = this.getOverallRatingColor.bind(this);
     }
 
     /**
      * Retrieves the stroke color of the overall rating wheel based on the overall rating
      */
-    private getOverallColor(): string {
+    private getOverallRatingColor(): string {
         const rating = this.props.review.overallRating;
         switch (true) {
             case rating >= 4:
@@ -38,6 +38,7 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
     }
 
     render() {
+        const ratingColor = this.getOverallRatingColor();
         return (
             <div className="review-panel">
                 <div className="row review-body">
@@ -50,7 +51,7 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
                                 percentage={this.props.review.overallRating/5.0 * 100}
                                 text={`${this.props.review.overallRating}/5`}
                                 initialAnimation={true}
-                                styles={{path: {stroke: this.getOverallColor()}, text: {fill: this.getOverallColor()}}}
+                                styles={{path: {stroke: ratingColor}, text: {fill: ratingColor}}}
                             />
                         </div>
                         <div className="row">
@@ -100,16 +101,18 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
 
 interface StarProps {title: string, rating: number}
 
-/** Functional component that renders a rating image **/
+/** Functional component that renders a set of rating stars **/
 const RatingStars = (props: StarProps) => {
     const numHighlighted = Math.ceil(props.rating);
     return (
         <div className="rating-stars">
             <p className="star-title">{props.title}</p>
             <div className="star-row">
+                {/* Highlight up to ceil(rating) stars */}
                 { [...Array(numHighlighted)].map((_, i) =>
                     <i key={i} className="fas fa-star star-filled"></i>
                 )}
+                {/* Leave 5 - ceil(rating) stars greyed-out */}
                 { [...Array(5 - numHighlighted)].map((_, i) =>
                     <i key={i} className="fas fa-star star-unfilled"></i>
                 )}

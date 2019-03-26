@@ -7,9 +7,9 @@ interface PanelProps { showNav: boolean }
 interface PanelState { reviews: Review[] }
 
 /**
- * The center panel component defines the inner display elements within the dashboard
+ * The home panel component defines the home page on the dashboard to the right of the Sidenav
  */
-export class CenterPanel extends React.Component<PanelProps, PanelState> {
+export class HomePanel extends React.Component<PanelProps, PanelState> {
     constructor(props) {
         super(props);
 
@@ -17,7 +17,9 @@ export class CenterPanel extends React.Component<PanelProps, PanelState> {
     }
 
     render() {
+        // Set the css class to set the margin depending on whether the side nav is shown
         const centerClass = this.props.showNav ? "center-margin" : "";
+
         return (
             <div id="centerpanel" className={centerClass}>
                 <header className="center-header">
