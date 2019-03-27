@@ -59,7 +59,7 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
                                 <RatingStars title="Workload" rating={this.props.review.difficultyRating}/>
                             </div>
                             <div className="col-lg-6">
-                                <RatingStars title="Teaching" rating={this.props.review.teacherRating}/>
+                                <RatingStars title="Teaching" rating={this.props.review.professorRating}/>
                             </div>
                         </div>
                         <div className="row">
@@ -78,8 +78,8 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
                                 <p>{this.props.review.semester}</p>
                             </div>
                             <div className="col-sm-3 review-datum">
-                                <p className="review-title">Teacher</p>
-                                <p>{this.props.review.teacher}</p>
+                                <p className="review-title">Professor</p>
+                                <p>{this.props.review.professor}</p>
                             </div>
                             <div className="col-sm-3 review-datum">
                                 <p className="review-title">Grade Received</p>

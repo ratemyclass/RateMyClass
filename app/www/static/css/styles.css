@@ -245,3 +245,40 @@ nav {
   margin-left: 30%;
   width: 40%;
 }
+.professor-list {
+  padding: 50px;
+}
+.professor {
+  padding: 50px;
+}
+.professor-info {
+  border-radius: 1px;
+  border: solid 1px #E6E6E6;
+  background-color: white;
+}
+.professor-name {
+  padding: 20px;
+  color: #6c757d;
+}
+.professor-pic {
+  width: 100%;
+}
+.professor-reviews {
+  padding: 20px;
+  border-radius: 1px;
+  border: solid 1px #E6E6E6;
+  background-color: white;
+}
+.class-pill {
+  margin: 5px;
+  white-space: nowrap;
+  border-radius: 100px;
+  padding: 0 10px;
+}
+.pill-container {
+  flex-wrap: wrap;
+}
+.classes-header {
+  padding: 10px;
+  color: #6c757d;
+}

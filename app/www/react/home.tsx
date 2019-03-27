@@ -3,13 +3,13 @@ import {StatPanel} from "./statpanel";
 import {ReviewPanel} from "./reviewpanel";
 import {Review, sampleReview1, sampleReview2} from "./types";
 
-interface PanelProps { showNav: boolean }
+interface PanelProps { showNav: boolean, updateView: (viewNum: number) => void }
 interface PanelState { reviews: Review[] }
 
 /**
  * The home panel component defines the home page on the dashboard to the right of the Sidenav
  */
-export class HomePanel extends React.Component<PanelProps, PanelState> {
+export class Home extends React.Component<PanelProps, PanelState> {
     constructor(props) {
         super(props);
 
@@ -29,16 +29,18 @@ export class HomePanel extends React.Component<PanelProps, PanelState> {
 
                 <div className="row">
                     <div className="col-md-3">
-                        <StatPanel title="Classes" description="231" statColor="lightgreen" />
+                        <StatPanel title="Classes" description="231" statColor="lightgreen" iconClass="fas fa-signal"
+                                   onClick={() => this.props.updateView(1)} />
                     </div>
                     <div className="col-md-3">
-                        <StatPanel title="Professors" description="105" statColor="lightblue" />
+                        <StatPanel title="Professors" description="105" statColor="lightblue" iconClass="fas fa-signal"
+                                   onClick={() => this.props.updateView(2)} />
                     </div>
                     <div className="col-md-3">
-                        <StatPanel title="Majors" description="38" statColor="magenta" />
+                        <StatPanel title="Majors" description="38" statColor="magenta" iconClass="fas fa-signal" />
                     </div>
                     <div className="col-md-3">
-                        <StatPanel title="Reviews" description="582" statColor="yellow" />
+                        <StatPanel title="Reviews" description="582" statColor="yellow" iconClass="fas fa-signal" />
                     </div>
                 </div>
 

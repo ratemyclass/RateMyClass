@@ -5,10 +5,10 @@ export interface Review {
     className: string,
     timestamp: number,
     summary: string,
-    teacher: string,
+    professor: string,
     semester: string,
     workloadRating: number,
-    teacherRating: number,
+    professorRating: number,
     learnRating: number,
     difficultyRating: number,
     overallRating: number,
@@ -16,15 +16,22 @@ export interface Review {
     reviewText: string
 }
 
+export interface Professor {
+    name: string,
+    classes: string[]
+    avgRating: number,
+    avgGrade: string
+}
+
 export const sampleReview1 = {
     classId: "CS 589",
     className: "Machine Learning",
     timestamp: 1553551701,
     summary: "Great Class!",
-    teacher: "Justin Domke",
+    professor: "Justin Domke",
     semester: "Spring 2019",
     workloadRating: 3.5,
-    teacherRating: 4.5,
+    professorRating: 4.5,
     learnRating: 4,
     difficultyRating: 3,
     overallRating: 4,
@@ -37,13 +44,41 @@ export const sampleReview2 = {
     className: "Introduction to Computation",
     timestamp: 1552451701,
     summary: "Very Difficult Class",
-    teacher: "Marius Minea",
+    professor: "Marius Minea",
     semester: "Spring 2019",
     workloadRating: 5,
-    teacherRating: 4,
+    professorRating: 4,
     learnRating: 3,
     difficultyRating: 5,
     overallRating: 1,
     gradeReceived: "C",
     reviewText: "Horrible Class. One of the world possible electives you could ever take at UMass."
+};
+
+export const sampleProf1 = {
+    name: "David Mix Barrington",
+    classes: ["CS 250", "CS 501", "CS 575", "CS 741"],
+    avgRating: 3.4,
+    avgGrade: "B"
+};
+
+export const sampleProf2 = {
+    name: "Tim Richards",
+    classes: ["CS 187", "CS 230", "CS 377"],
+    avgRating: 4.3,
+    avgGrade: "A-"
+};
+
+export const sampleProf3 = {
+    name: "Marius Minea",
+    classes: ["CS 250", "CS 311", "CS 501"],
+    avgRating: 3.2,
+    avgGrade: "B-"
+};
+
+export const sampleProf4 = {
+    name: "Arjun Guha",
+    classes: ["CS 220", "CS 497P", "CS 613"],
+    avgRating: 4.1,
+    avgGrade: "A-"
 };
