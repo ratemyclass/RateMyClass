@@ -318,6 +318,11 @@ nav {
   border-bottom: solid 1px #E6E6E6;
   padding: 30px;
 }
+@media (max-width: 480px) {
+  .class-body {
+    padding: 20px 0 0 0;
+  }
+}
 .class-name {
   margin-bottom: 15px;
 }

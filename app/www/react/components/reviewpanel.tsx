@@ -55,18 +55,18 @@ export class ReviewPanel extends React.Component<ReviewPanelProps, ReviewPanelSt
                             />
                         </div>
                         <div className="row">
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 col-md-12 col-6">
                                 <RatingStars title="Workload" rating={this.props.review.difficultyRating}/>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 col-md-12 col-6">
                                 <RatingStars title="Teaching" rating={this.props.review.professorRating}/>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 col-md-12 col-6">
                                 <RatingStars title="Learning" rating={this.props.review.learnRating}/>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 col-md-12 col-6">
                                 <RatingStars title="Difficulty" rating={this.props.review.difficultyRating}/>
                             </div>
                         </div>

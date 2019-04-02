@@ -8,7 +8,7 @@ import {ReviewPanel} from "../components/reviewpanel";
 import {computeAverageGrade, consolidateGradeData} from "../util/grades";
 
 interface ClassProfileProps { showNav: boolean, class: Course }
-interface ClassProfileState { reviews: Review[], selectedSemester: string }
+interface ClassProfileState { reviews: Review[], selectedSemester: string, semesterGrades: Map<string, object[]> }
 
 
 /**
@@ -22,7 +22,8 @@ export class ClassProfile extends React.Component<ClassProfileProps, ClassProfil
         this.makeFakeData = this.makeFakeData.bind(this);
 
         // TODO: Setup an API request in the componentDidMount method to obtain reviews
-        this.state = {reviews: [sampleReview1, sampleReview2], selectedSemester: "All semesters"}
+        this.state = {reviews: [sampleReview1, sampleReview2], selectedSemester: "All semesters",
+                      semesterGrades: new Map<string, object[]>(this.props.class.semesters.map((s) => [s, this.makeFakeData()] as [string, object[]]))}
 
     }
 
@@ -44,9 +45,9 @@ export class ClassProfile extends React.Component<ClassProfileProps, ClassProfil
     }
 
     render() {
-        const dataMap = new Map<string, object[]>(this.props.class.semesters.map((s) => [s, this.makeFakeData()] as [string, object[]]));
+        const gradeMap = this.state.semesterGrades;
         const navClass = this.props.showNav ? "nav-margin" : "";
-        const data = this.state.selectedSemester === "All semesters" ? consolidateGradeData(dataMap) : dataMap.get(this.state.selectedSemester);
+        const data = this.state.selectedSemester === "All semesters" ? consolidateGradeData(gradeMap) : gradeMap.get(this.state.selectedSemester);
         const [grade, meanScore] = computeAverageGrade(data);
         return (
             <div className={`class-profile ${navClass}`}>
@@ -79,7 +80,7 @@ export class ClassProfile extends React.Component<ClassProfileProps, ClassProfil
                                 </p>
                                 {/* Show histogram of class distribution */}
                                 <ResponsiveContainer height={300} width="100%">
-                                    <BarChart data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                                    <BarChart data={data} margin={{top: 15, right: 0, left: 0, bottom: 5}}>
                                         <XAxis dataKey="name"/>
                                         <YAxis/>
                                         <Tooltip/>
