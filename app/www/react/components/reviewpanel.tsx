@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import { Review } from "./types";
+import { Review } from "../types";
 
 interface ReviewPanelProps { review: Review }
 interface ReviewPanelState {}

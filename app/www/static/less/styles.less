@@ -135,6 +135,7 @@ nav {
   border-radius: 1px;
   border: solid 1px @medium-grey;
   padding: 20px;
+  margin-bottom: 20px;
 
   &:hover {
     cursor: pointer;
@@ -211,6 +212,11 @@ nav {
   font-weight: 100;
   font-size: 0.85em;
   color: darken(@medium-grey, 25%);
+
+  @media @phone-down {
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }
 
 .review-content-header {
@@ -299,13 +305,24 @@ nav {
   border-radius: 1px;
   border: solid 1px @medium-grey;
   background-color: white;
+
+  @media @small-desktop-down {
+    margin-top: 20px;
+  }
 }
 
-.class-pill {
+.text-pill {
   margin: 5px;
   white-space: nowrap;
   border-radius: 100px;
   padding: 0 10px;
+  cursor: pointer;
+
+  &:hover {
+    margin-top: 0;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+  }
 }
 
 .pill-container {
@@ -315,4 +332,56 @@ nav {
 .classes-header {
   padding: 10px;
   color: #6c757d;
+}
+
+
+// Classes View
+
+
+.classes-list {
+  padding: 50px;
+}
+
+
+// Class Profile
+
+
+.class-profile {
+  padding: 50px;
+}
+
+.class-info {
+  padding: 20px;
+  border-radius: 1px;
+  border: solid 1px @medium-grey;
+  background-color: white;
+}
+
+.class-body {
+  border-radius: 1px;
+  border-top: solid 1px @medium-grey;
+  border-bottom: solid 1px @medium-grey;
+  padding: 30px;
+}
+
+.class-name {
+  margin-bottom: 15px;
+}
+
+.class-reviews {
+  margin-top: 15px;
+}
+
+.semester-dropdown {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.avg-grade {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dist-title {
+  text-align: center;
 }

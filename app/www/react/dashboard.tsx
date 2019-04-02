@@ -1,11 +1,30 @@
 import * as React from "react";
 
-import { Navbar } from "./navbar";
-import { Sidenav } from "./sidenav";
-import { Home } from "./home";
-import {ProfessorProfile} from "./professorprofile";
-import {Professor, sampleProf1, sampleProf2, sampleProf3, sampleProf4, sampleReview1, sampleReview2} from "./types";
-import {ProfessorView} from "./professor";
+import { Navbar } from "./components/navbar";
+import { Sidenav } from "./components/sidenav";
+import { Home } from "./views/home";
+import {ProfessorProfile} from "./views/professorprofile";
+import {
+    Course,
+    Professor,
+    sampleCourse1,
+    sampleCourse2,
+    sampleCourse3,
+    sampleCourse4,
+    sampleCourse5,
+    sampleCourse6,
+    sampleCourse7,
+    sampleCourse8,
+    sampleProf1,
+    sampleProf2,
+    sampleProf3,
+    sampleProf4,
+    sampleReview1,
+    sampleReview2
+} from "./types";
+import {ProfessorView} from "./views/professor";
+import {ClassesView} from "./views/classes";
+import {ClassProfile} from "./views/classprofile";
 
 interface DashboardProps { currentView: number }
 interface DashboardState { showSideNav: boolean, windowWidth: number, currentView: number }
@@ -76,7 +95,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             case 1:
                 window.history.pushState("", "", "/classes");
                 break;
-            case 2:
+            case 3:
                 window.history.pushState("", "", "/professors");
                 break;
             default:
@@ -91,13 +110,19 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     private renderCurrentView(): JSX.Element {
         // TODO: Consolidate this into a single declaration
         const sampleProfs: Professor[] = [sampleProf1, sampleProf2, sampleProf3, sampleProf4];
+        const sampleCourses: Course[] = [sampleCourse1, sampleCourse2, sampleCourse3, sampleCourse4, sampleCourse5, sampleCourse6, sampleCourse7, sampleCourse8];
         const showNav = this.state.showSideNav && this.state.windowWidth > 692;
         switch (this.state.currentView) {
             case 0:
                 return <Home showNav={showNav} updateView={this.updateView} />;
+            case 1:
+                return <ClassesView showNav={showNav} classes={sampleCourses} />;
             case 2:
-                return <ProfessorView showNav={showNav} professors={[sampleProf1, sampleProf2, sampleProf3, sampleProf4]} />;
+                const decodedclass = decodeURI(window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1));
+                return <ClassProfile showNav={showNav} class={sampleCourses.find(c => c.id === decodedclass)} />;
             case 3:
+                return <ProfessorView showNav={showNav} professors={[sampleProf1, sampleProf2, sampleProf3, sampleProf4]} />;
+            case 4:
                 const decodedProf = decodeURI(window.location.pathname.substring(window.location.pathname.lastIndexOf('/')+1));
                 return <ProfessorProfile showNav={showNav} professor={sampleProfs.find(p => p.name === decodedProf)}
                                          reviews={[sampleReview1, sampleReview2]} />;

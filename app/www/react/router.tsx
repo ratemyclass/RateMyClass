@@ -7,9 +7,9 @@ import { Dashboard } from "./dashboard";
 export const App = () => (
     <Switch>
         <Route exact path='/' render={(props) => <Dashboard currentView={0} /> } />
-        <Route path='/classes/:class' render={(props) => <Dashboard currentView={1} /> } />
+        <Route path='/classes/:class' render={(props) => <Dashboard currentView={2} /> } />
         <Route path='/classes' render={(props) => <Dashboard currentView={1} /> } />
-        <Route path='/professors/:instance' render={(props) => <Dashboard currentView={3} /> } />
-        <Route path='/professors' render={(props) => <Dashboard currentView={2} /> } />
+        <Route path='/professors/:instance' render={(props) => <Dashboard currentView={4} /> } />
+        <Route path='/professors' render={(props) => <Dashboard currentView={3} /> } />
     </Switch>
 );

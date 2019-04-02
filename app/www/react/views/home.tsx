@@ -1,7 +1,7 @@
 import * as React from "react";
-import {StatPanel} from "./statpanel";
-import {ReviewPanel} from "./reviewpanel";
-import {Review, sampleReview1, sampleReview2} from "./types";
+import {StatPanel} from "../components/statpanel";
+import {ReviewPanel} from "../components/reviewpanel";
+import {Review, sampleReview1, sampleReview2} from "../types";
 
 interface PanelProps { showNav: boolean, updateView: (viewNum: number) => void }
 interface PanelState { reviews: Review[] }
@@ -34,10 +34,10 @@ export class Home extends React.Component<PanelProps, PanelState> {
                     </div>
                     <div className="col-md-3">
                         <StatPanel title="Professors" description="105" statColor="lightblue" iconClass="fas fa-signal"
-                                   onClick={() => this.props.updateView(2)} />
+                                   onClick={() => this.props.updateView(3)} />
                     </div>
                     <div className="col-md-3">
-                        <StatPanel title="Majors" description="38" statColor="magenta" iconClass="fas fa-signal" />
+                        <StatPanel title="Majors" description="38" statColor="magenta" iconClass="fas fa-signal"/>
                     </div>
                     <div className="col-md-3">
                         <StatPanel title="Reviews" description="582" statColor="yellow" iconClass="fas fa-signal" />

@@ -18,9 +18,15 @@ export interface Review {
 
 export interface Professor {
     name: string,
-    classes: string[]
+    classes: string[],
     avgRating: number,
     avgGrade: string
+}
+
+export interface Course {
+    id: string,
+    name: string,
+    semesters: string[]
 }
 
 export const sampleReview1 = {
@@ -57,7 +63,7 @@ export const sampleReview2 = {
 
 export const sampleProf1 = {
     name: "David Mix Barrington",
-    classes: ["CS 250", "CS 501", "CS 575", "CS 741"],
+    classes: ["CS 250", "CS 501", "CS 575"],
     avgRating: 3.4,
     avgGrade: "B"
 };
@@ -78,7 +84,55 @@ export const sampleProf3 = {
 
 export const sampleProf4 = {
     name: "Arjun Guha",
-    classes: ["CS 220", "CS 497P", "CS 613"],
+    classes: ["CS 220"],
     avgRating: 4.1,
     avgGrade: "A-"
+};
+
+export const sampleCourse1 = {
+    id: "CS 311",
+    name: "Introduction to Algorithms",
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018"]
+};
+
+export const sampleCourse2 = {
+    id: "CS 575",
+    name: "Combinatorics and Graph Theory",
+    semesters: ["Fall 2018", "Fall 2016"]
+};
+
+export const sampleCourse3 = {
+    id: "CS 250",
+    name: "Introduction to Computation",
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018"]
+};
+
+export const sampleCourse4 = {
+    id: "CS 220",
+    name: "Programming Methodology",
+    semesters: ["Spring 2019", "Fall 2017", "Spring 2016"]
+};
+
+export const sampleCourse5 = {
+    id: "CS 501",
+    name: "Formal Language Theory",
+    semesters: ["Spring 2019", "Spring 2018", "Spring 2017"]
+};
+
+export const sampleCourse6 = {
+    id: "CS 187",
+    name: "Programming With Data Structures",
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018", "Fall 2017", "Spring 2017", "Fall 2016"]
+};
+
+export const sampleCourse7 = {
+    id: "CS 230",
+    name: "Computer Systems Principles",
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018", "Fall 2016"]
+};
+
+export const sampleCourse8 = {
+    id: "CS 377",
+    name: "Operating Systems",
+    semesters: ["Spring 2019", "Fall 2015"]
 };

@@ -1,9 +1,9 @@
 import * as React from "react";
-import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import {Professor, Review} from "./types";
-import {ReviewPanel} from "./reviewpanel";
+import {Professor, Review} from "../types";
+import {ReviewPanel} from "../components/reviewpanel";
+import {TextPill} from "../components/textpill";
 
 interface ProfessorProfileProps { showNav: boolean, professor: Professor, reviews: Review[] }
 interface ProfessorProfileState {}
@@ -23,10 +23,10 @@ export class ProfessorProfile extends React.Component<ProfessorProfileProps, Pro
         return (
             <div className={`professor ${navClass}`}>
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-lg-3">
                         <ProfilePanel professor={this.props.professor} />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-lg-9">
                         <div className="professor-reviews">
                             <div className="col-12 recent-title">
                                 <p>Recent Reviews</p>
@@ -46,6 +46,9 @@ interface ProfileProps { professor: Professor }
 
 /** Functional component that renders a professor's profile panel **/
 const ProfilePanel = (props: ProfileProps) => {
+    const makeOnClick = (className: string) => () => {
+        window.location.href = window.location.origin + "/classes/" + encodeURI(className);
+    };
 
     return (
         <div className="professor-info">
@@ -54,16 +57,9 @@ const ProfilePanel = (props: ProfileProps) => {
             <p className="classes-header">Classes Taught</p>
             <div className="flex pill-container">
                 { props.professor.classes.map((c,i) =>
-                    <TextPill key={i} text={c} color="lightblue" />
+                    <TextPill key={i} text={c} color="lightblue" onClick={makeOnClick(c)} />
                 )}
             </div>
         </div>
     );
-};
-
-interface PillProps { text: string, color: string }
-
-/** Functional component that renders a text pill with a specified background color **/
-const TextPill = (props: PillProps) => {
-    return <p className={`class-pill ${props.color} with-bg`}>{props.text}</p>
 };
