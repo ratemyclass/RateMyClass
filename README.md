@@ -1,4 +1,8 @@
 # RateMyClass
+[![Build Status](http://img.shields.io/travis/badges/ratemyclass.svg?style=flat-square)](https://travis-ci.org/badges/ratemyclass)
+[![Coverage Status](http://img.shields.io/coveralls/badges/ratemyclass.svg?style=flat-square)](https://coveralls.io/r/badges/ratemyclass)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://ratemyclass.mit-license.org)
+
 RateMyProfessor, but for classes.
 
 ## Installation
