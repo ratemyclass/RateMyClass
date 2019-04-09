@@ -131,9 +131,7 @@ nav {
 
 
 .statpanel {
-  background-color: white;
-  border-radius: 1px;
-  border: solid 1px @medium-grey;
+  &:extend(.panel);
   padding: 20px;
   margin-bottom: 20px;
 
@@ -167,10 +165,8 @@ nav {
 
 
 .recent-reviews {
+  &:extend(.panel);
   margin-top: 20px;
-  background-color: white;
-  border-radius: 1px;
-  border: solid 1px @medium-grey;
   padding: 20px;
 }
 
@@ -286,9 +282,7 @@ nav {
 }
 
 .professor-info {
-  border-radius: 1px;
-  border: solid 1px @medium-grey;
-  background-color: white;
+  &:extend(.panel);
 }
 
 .professor-name {
@@ -302,9 +296,7 @@ nav {
 
 .professor-reviews {
   padding: 20px;
-  border-radius: 1px;
-  border: solid 1px @medium-grey;
-  background-color: white;
+  &:extend(.panel);
 
   @media @small-desktop-down {
     margin-top: 20px;
@@ -342,19 +334,23 @@ nav {
   padding: 50px;
 }
 
+.filter-row {
+  &:extend(.panel);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 
 // Class Profile
-
+//
 
 .class-profile {
   padding: 50px;
 }
 
 .class-info {
+  &:extend(.panel);
   padding: 20px;
-  border-radius: 1px;
-  border: solid 1px @medium-grey;
-  background-color: white;
 }
 
 .class-body {
@@ -362,6 +358,7 @@ nav {
   border-top: solid 1px @medium-grey;
   border-bottom: solid 1px @medium-grey;
   padding: 30px;
+
 
   @media @phone-down {
     padding: 20px 0 0 0;
