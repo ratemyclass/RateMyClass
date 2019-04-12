@@ -26,7 +26,9 @@ export interface Professor {
 export interface Course {
     id: string,
     name: string,
-    semesters: string[]
+    semesters: string[],
+    taughtBy: Set<string>,
+    avgRating: number,
 }
 
 export const sampleReview1 = {
@@ -92,47 +94,63 @@ export const sampleProf4 = {
 export const sampleCourse1 = {
     id: "CS 311",
     name: "Introduction to Algorithms",
-    semesters: ["Spring 2019", "Fall 2018", "Spring 2018"]
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018"],
+    taughtBy: new Set<string>(["Marius Minea", "David Mix Barrington"]),
+    avgRating: 3.45
 };
 
 export const sampleCourse2 = {
     id: "CS 575",
     name: "Combinatorics and Graph Theory",
-    semesters: ["Fall 2018", "Fall 2016"]
+    semesters: ["Fall 2018", "Fall 2016"],
+    taughtBy: new Set<string>(["David Mix Barrington"]),
+    avgRating: 4
 };
 
 export const sampleCourse3 = {
     id: "CS 250",
     name: "Introduction to Computation",
-    semesters: ["Spring 2019", "Fall 2018", "Spring 2018"]
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018"],
+    taughtBy: new Set<string>(["Marius Minea", "David Mix Barrington"]),
+    avgRating: 2
 };
 
 export const sampleCourse4 = {
     id: "CS 220",
     name: "Programming Methodology",
-    semesters: ["Spring 2019", "Fall 2017", "Spring 2016"]
+    semesters: ["Spring 2019", "Fall 2017", "Spring 2016"],
+    taughtBy: new Set<string>(["Arjun Guha"]),
+    avgRating: 5
 };
 
 export const sampleCourse5 = {
     id: "CS 501",
     name: "Formal Language Theory",
-    semesters: ["Spring 2019", "Spring 2018", "Spring 2017"]
+    semesters: ["Spring 2019", "Spring 2018", "Spring 2017"],
+    taughtBy: new Set<string>(["David Mix Barrington"]),
+    avgRating: 3
 };
 
 export const sampleCourse6 = {
     id: "CS 187",
     name: "Programming With Data Structures",
-    semesters: ["Spring 2019", "Fall 2018", "Spring 2018", "Fall 2017", "Spring 2017", "Fall 2016"]
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018", "Fall 2017", "Spring 2017", "Fall 2016"],
+    taughtBy: new Set<string>(["Tim Richards", "David Mix Barrington"]),
+    avgRating: 2.3
 };
 
 export const sampleCourse7 = {
     id: "CS 230",
     name: "Computer Systems Principles",
-    semesters: ["Spring 2019", "Fall 2018", "Spring 2018", "Fall 2016"]
+    semesters: ["Spring 2019", "Fall 2018", "Spring 2018", "Fall 2016"],
+    taughtBy: new Set<string>(["Tim Richards"]),
+    avgRating: 3
 };
 
 export const sampleCourse8 = {
     id: "CS 377",
     name: "Operating Systems",
-    semesters: ["Spring 2019", "Fall 2015"]
+    semesters: ["Spring 2019", "Fall 2015"],
+    taughtBy: new Set<string>(["Tim Richards"]),
+    avgRating: 3
 };

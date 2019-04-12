@@ -3,8 +3,8 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 
-interface RangeFilterProps { placeholder: string }
-interface RangeFilterState { toggled: boolean, bottomValue: number, topValue: number, applyFilter: boolean }
+interface RangeFilterProps { updateFilterValues: (values: number[]) => void }
+interface RangeFilterState { toggled: boolean, bottomValue: number, topValue: number, filterText: string }
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -17,8 +17,27 @@ export class RangeFilterBox extends React.Component<RangeFilterProps, RangeFilte
         super(props);
 
         this.onSliderChanged = this.onSliderChanged.bind(this);
+        this.applyFilter = this.applyFilter.bind(this);
+        this.toggleView = this.toggleView.bind(this);
+        this.makeFilterText = this.makeFilterText.bind(this);
 
-        this.state = {toggled: false, bottomValue: 1, topValue: 5, applyFilter: false};
+        this.state = { toggled: false, bottomValue: 1, topValue: 5, filterText: "Between 1 and 5 stars" };
+    }
+
+    /**
+     * Toggles the visibility of the dropdown panel containing the slider
+     */
+    toggleView(): void {
+        this.setState({toggled: !this.state.toggled});
+    }
+
+    /**
+     * Applies the slider range selection to the filter
+     */
+    applyFilter(): void {
+        this.props.updateFilterValues([this.state.bottomValue, this.state.topValue]);
+        this.setState({filterText: this.makeFilterText()});
+        this.toggleView();
     }
 
     /**
@@ -30,20 +49,23 @@ export class RangeFilterBox extends React.Component<RangeFilterProps, RangeFilte
         this.setState({topValue: newValues[1], bottomValue: newValues[0]});
     }
 
-    render() {
-        const toggleView = () => this.setState({toggled: !this.state.toggled});
-        const toggleFilter = () => {
-            this.setState({applyFilter: !this.state.applyFilter});
-            toggleView();
-        };
+    /**
+     * Create the filter text for the visible input field
+     */
+    private makeFilterText(): string {
+        if (this.state.bottomValue === this.state.topValue) {
+            return `Only ${this.state.bottomValue} stars`;
+        }
+        return `Between ${this.state.bottomValue} and ${this.state.topValue} stars`;
+    }
 
+    render() {
         const toggleClass = this.state.toggled ? "toggled" : "";
-        const filterText = this.state.applyFilter ? `Between ${this.state.bottomValue} and ${this.state.topValue} stars` : this.props.placeholder;
         return (
             <div className="filter">
-                <div className={`selectbox ${toggleClass}`} onClick={toggleView}>
+                <div className={`selectbox ${toggleClass}`} onClick={this.toggleView}>
                     <div>
-                        <div className="select-inner">{filterText}</div>
+                        <div className="select-inner">{this.state.filterText}</div>
                     </div>
                     <div className="select-drop">
                         <span className="select-bar"></span>
@@ -62,10 +84,8 @@ export class RangeFilterBox extends React.Component<RangeFilterProps, RangeFilte
                                marks={{ 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 }} tipFormatter={value => `${value}/5`}
                                onChange={this.onSliderChanged} />
                         <div className="range-buttons">
-                            <button className="btn btn-round" onClick={toggleView}>Cancel</button>
-                            <button className="btn btn-round" onClick={toggleFilter}>
-                                {this.state.applyFilter ? "Unapply" : "Apply"}
-                            </button>
+                            <button className="btn btn-round" onClick={this.toggleView}>Cancel</button>
+                            <button className="btn btn-round" onClick={this.applyFilter}>Apply</button>
                         </div>
                     </div>
                 }

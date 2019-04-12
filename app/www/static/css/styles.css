@@ -68,6 +68,9 @@ button:focus {
   border: solid 1px #E6E6E6;
   background-color: white;
 }
+.filter {
+  margin-bottom: 10px;
+}
 .selectbox {
   -webkit-align-items: center;
   -webkit-box-align: center;
